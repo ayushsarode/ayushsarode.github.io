@@ -18,9 +18,13 @@ export function ThemeToggle() {
   }
 
   const handleToggle = () => {
+    const isDark = resolvedTheme === "dark";
+    const newTheme = isDark ? "light" : "dark";
+
     const btn = buttonRef.current;
-    if (!btn) {
-      setTheme(resolvedTheme === "dark" ? "light" : "dark");
+    // @ts-expect-error View Transitions API might not be typed
+    if (!btn || !document.startViewTransition) {
+      setTheme(newTheme);
       return;
     }
 
@@ -30,45 +34,34 @@ export function ThemeToggle() {
 
     // Calculate the maximum radius needed to cover the entire viewport
     const maxRadius = Math.ceil(
-      Math.sqrt(
-        Math.max(x, window.innerWidth - x) ** 2 +
-        Math.max(y, window.innerHeight - y) ** 2
+      Math.hypot(
+        Math.max(x, window.innerWidth - x),
+        Math.max(y, window.innerHeight - y)
       )
     );
 
-    const newTheme = resolvedTheme === "dark" ? "light" : "dark";
-    const newBg = newTheme === "dark" ? "#000000" : "#F4F0EB";
-
-    // Create the expanding circle overlay
-    const overlay = document.createElement("div");
-    overlay.style.cssText = `
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      z-index: 99998;
-      pointer-events: none;
-      background: ${newBg};
-      clip-path: circle(0px at ${x}px ${y}px);
-      transition: clip-path 0.7s cubic-bezier(0.76, 0, 0.24, 1);
-    `;
-    document.body.appendChild(overlay);
-
-    // Trigger the expansion
-    requestAnimationFrame(() => {
-      overlay.style.clipPath = `circle(${maxRadius}px at ${x}px ${y}px)`;
+    // @ts-expect-error View Transitions API might not be typed
+    const transition = document.startViewTransition(() => {
+      setTheme(newTheme);
     });
 
-    // Switch the actual theme midway through the animation
-    setTimeout(() => {
-      setTheme(newTheme);
-    }, 350);
+    transition.ready.then(() => {
+      const clipPath = [
+        `circle(0px at ${x}px ${y}px)`,
+        `circle(${maxRadius}px at ${x}px ${y}px)`,
+      ];
 
-    // Remove the overlay after animation completes
-    setTimeout(() => {
-      overlay.remove();
-    }, 750);
+      document.documentElement.animate(
+        {
+          clipPath: isDark ? clipPath : [...clipPath].reverse(),
+        },
+        {
+          duration: 700,
+          easing: "cubic-bezier(0.76, 0, 0.24, 1)",
+          pseudoElement: isDark ? "::view-transition-new(root)" : "::view-transition-old(root)",
+        }
+      );
+    });
   };
 
   return (
