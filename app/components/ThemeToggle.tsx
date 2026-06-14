@@ -22,7 +22,6 @@ export function ThemeToggle() {
     const newTheme = isDark ? "light" : "dark";
 
     const btn = buttonRef.current;
-    // @ts-expect-error View Transitions API might not be typed
     if (!btn || !document.startViewTransition) {
       setTheme(newTheme);
       return;
@@ -40,7 +39,6 @@ export function ThemeToggle() {
       )
     );
 
-    // @ts-expect-error View Transitions API might not be typed
     const transition = document.startViewTransition(() => {
       setTheme(newTheme);
     });
