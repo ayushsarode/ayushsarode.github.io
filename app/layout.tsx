@@ -15,12 +15,13 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Ayush Sarodey — Software Engineer",
+  title: "Ayush Sarodey",
   description:
     "Software developer experienced in building scalable web services and developer tools. Hands-on experience with cloud infrastructure, CI/CD pipelines, containerization, and infrastructure as code.",
   keywords: [
     "Ayush Sarodey",
     "Software Engineer",
+    "Backend Engineer",
     "Go",
     "TypeScript",
     "Full Stack Developer",
