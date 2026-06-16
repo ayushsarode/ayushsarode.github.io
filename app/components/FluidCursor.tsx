@@ -37,7 +37,7 @@ export default function FluidCursor() {
         IMMEDIATE: true,
         AUTO: false,
         SPLAT_COLOR: isDark
-          ? { r: 0.25, g: 0.25, b: 0.25 }
+          ? { r: 0.1, g: 0.1, b: 0.2 } // Dark blue/indigo to contrast with white text
           : { r: 0.25, g: 0.2, b: 0.14 },
         COLORFUL: false,
         SPLAT_RADIUS: 0.3,
