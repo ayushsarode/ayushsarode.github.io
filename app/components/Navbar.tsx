@@ -1,14 +1,16 @@
 "use client";
 import React, { useState, useEffect } from "react";
+import Link from "next/link";
 
 import { ThemeToggle } from "./ThemeToggle";
 
 const navLinks = [
-  { label: "About", href: "#about" },
-  { label: "Skills", href: "#skills" },
-  { label: "Experience", href: "#experience" },
-  { label: "Projects", href: "#projects" },
-  { label: "Contact", href: "#contact" },
+  { label: "About", href: "/#about" },
+  { label: "Skills", href: "/#skills" },
+  { label: "Experience", href: "/#experience" },
+  { label: "Projects", href: "/#projects" },
+  { label: "Blogs", href: "/blogs" },
+  { label: "Contact", href: "/#contact" },
 ];
 
 export default function Navbar() {
@@ -29,23 +31,23 @@ export default function Navbar() {
       }`}
     >
       <div className="max-w-6xl mx-auto px-6 flex items-center justify-between">
-        <a
-          href="#"
+        <Link
+          href="/"
           className="text-lg font-semibold tracking-tight text-foreground hover:opacity-80 transition-opacity"
         >
           AS<span className="text-foreground/50 dark:text-foreground/30">.</span>
-        </a>
+        </Link>
 
         {/* Desktop */}
         <div className="hidden md:flex items-center gap-8">
           {navLinks.map((l) => (
-            <a
+            <Link
               key={l.href}
               href={l.href}
               className="text-sm text-foreground/70 dark:text-foreground/50 hover:text-foreground transition-colors duration-300"
             >
               {l.label}
-            </a>
+            </Link>
           ))}
           <div className="flex items-center gap-4">
             <ThemeToggle />
@@ -89,14 +91,14 @@ export default function Navbar() {
       >
         <div className="px-6 py-4 flex flex-col gap-4 border-t border-foreground/10 dark:border-foreground/5 bg-background/95 backdrop-blur-md">
           {navLinks.map((l) => (
-            <a
+            <Link
               key={l.href}
               href={l.href}
               onClick={() => setMobileOpen(false)}
               className="text-sm text-foreground/70 dark:text-foreground/50 hover:text-foreground transition-colors"
             >
               {l.label}
-            </a>
+            </Link>
           ))}
         </div>
       </div>
