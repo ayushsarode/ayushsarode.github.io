@@ -46,10 +46,10 @@ export default function AboutSection() {
                   <img
                     src={tech.icon}
                     alt={tech.name}
-                    className="w-8 h-8 opacity-50 group-hover:opacity-90 transition-opacity duration-300"
+                    className="w-8 h-8 opacity-90 group-hover:opacity-100 transition-opacity duration-300"
                     loading="lazy"
                   />
-                  <span className="text-[10px] text-foreground/50 dark:text-foreground/20 group-hover:text-foreground/80 dark:group-hover:text-foreground/50 transition-colors duration-300 tracking-wide">
+                  <span className="text-[10px] text-foreground/70 dark:text-foreground/50 group-hover:text-foreground/100 dark:group-hover:text-foreground/90 transition-colors duration-300 tracking-wide">
                     {tech.name}
                   </span>
                 </div>

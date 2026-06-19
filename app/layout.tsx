@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Ayush Sarodey" }],
   openGraph: {
-    title: "Ayush Sarodey — Software Engineer",
+    title: "Ayush Sarodey",
     description:
       "Software developer experienced in building scalable web services and developer tools.",
     type: "website",
