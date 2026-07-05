@@ -56,7 +56,7 @@ export default function AchievementsSection() {
                 </svg>
               </div>
               <h3 className="text-base font-semibold text-foreground mb-2">
-                Web Dev — GDSC GHRIETN
+                Web Dev (GDSC GHRIETN)
               </h3>
               <p className="text-sm text-foreground/65 dark:text-foreground/40 leading-relaxed">
                 Contributed as a Web Developer at GDSC, submitting 6 PRs to enhance
