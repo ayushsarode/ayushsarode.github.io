@@ -29,9 +29,12 @@ export function OssList() {
                   className={logo.fill ? "fill" : undefined}
                 />
               </span>
-              <p className="what">
-                {item.name} <span>· {item.area}</span>
-              </p>
+              <div>
+                <p className="what">
+                  {item.name} <span>· {item.area}</span>
+                </p>
+                <p className="note">{item.summary}</p>
+              </div>
               <span className="oss-end">
                 <span className="when meta">{item.merged} merged</span>
                 <ArrowUpRight aria-hidden="true" size={15} strokeWidth={1.75} />

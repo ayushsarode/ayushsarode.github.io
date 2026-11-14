@@ -80,17 +80,17 @@ export const openSource: OpenSource[] = [
     merged: 1,
     href: "https://github.com/temporalio/temporal/pulls?q=is%3Apr+state%3Aclosed+author%3Aayushsarode",
     summary:
-      "An invalid secondary visibility writing mode is treated as off, so a bad setting warns at startup instead of failing visibility writes into the DLQ.",
+      "A workflow engine. Application code runs as durable workflows, and a failed step continues from the last one that finished.",
   },
   {
     id: "antrea",
     name: "Antrea",
-    area: "Kubernetes networking · antctl",
+    area: "Kubernetes networking · agent",
     mark: "A",
-    merged: 1,
+    merged: 2,
     href: "https://github.com/antrea-io/antrea/pulls?q=is%3Apr+state%3Aclosed+author%3Aayushsarode",
     summary:
-      "The antctl cluster check Job mounts host paths read-only. Those checks only inspect the host.",
+      "Kubernetes networking for pods. Traffic moves through Open vSwitch, and network policy is enforced on the node.",
   },
   {
     id: "pipecd",
@@ -100,7 +100,7 @@ export const openSource: OpenSource[] = [
     merged: 1,
     href: "https://github.com/pipe-cd/pipecd/pulls?q=is%3Apr+state%3Aclosed+author%3Aayushsarode",
     summary:
-      "Integration tests for the Firestore application datastore cover create, get, list, update and delete.",
+      "GitOps continuous delivery. It watches Git and rolls out Kubernetes, Terraform, Cloud Run and other workloads.",
   },
 ];
 
@@ -117,6 +117,16 @@ export type Project = {
 };
 
 export const projects: Project[] = [
+  {
+    id: "ai-inference-gateway",
+    name: "Distributed AI inference gateway",
+    meta: "Go · Distributed systems · AI",
+    href: "https://github.com/ayushsarode/ai-inference-gateway",
+    summary:
+      "An OpenAI-compatible gateway that routes requests across vLLM and Ollama workers with load balancing, rate limiting, caching, batching, retries, circuit breakers and observability.",
+    icon: "scheduler",
+    featured: true,
+  },
   {
     id: "scheduler",
     name: "Distributed job scheduler",
@@ -135,16 +145,6 @@ export const projects: Project[] = [
     summary:
       "Cloud storage with a Go/Gin API and a Next.js app. Google sign-in, uploads to Cloud Storage, deduplicated files and a 2GB quota in MongoDB.",
     icon: "storage",
-    featured: true,
-  },
-  {
-    id: "zenith",
-    name: "Zenith",
-    meta: "Go · gRPC",
-    href: "https://github.com/ayushsarode/Zenith",
-    summary:
-      "Terminal chat rooms over gRPC. People talk from a command line, in more than one room.",
-    icon: "terminal",
     featured: true,
   },
   {

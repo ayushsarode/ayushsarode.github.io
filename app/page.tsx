@@ -91,7 +91,7 @@ export default function Home() {
         <h2 id="projects-heading" className="home-h">
           <span>~/</span>projects
         </h2>
-        <ProjectList items={featured} expandable />
+        <ProjectList items={featured} />
         <Link href="/projects" className="more">
           All projects <span aria-hidden="true">→</span>
         </Link>

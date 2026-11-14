@@ -24,13 +24,6 @@ const projects = [
     tags: ["Go", "React", "TypeScript", "Docker", "Cloud Run", "Zustand"],
     link: "https://github.com/ayushsarode/minurl",
   },
-  {
-    title: "Zenith",
-    description:
-      "Terminal-based chat application built in Go using gRPC, featuring real-time messaging and chat rooms through a command-line interface.",
-    tags: ["Go", "gRPC", "CLI", "Real-time"],
-    link: "https://github.com/ayushsarode/Zenith",
-  },
 ];
 
 export default function ProjectsSection() {
